@@ -1,0 +1,38 @@
+[user]
+      name = <%= node[:git][:name] %>
+      email = <%= node[:git][:email] %>
+      signingkey = <%= node[:git][:gpg_key_id] %>
+[color]
+      ui = true
+[alias]
+      st = status
+      di = diff
+      co = checkout
+      ci = commit
+      br = branch
+      cp = cherry-pick
+      sta = stash
+      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; kate `f`"
+      add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+      dh = diff HEAD
+      me = merge
+[rerere]
+      enabled = true
+
+[merge]
+      # it fills in one-liners of merged commits during merging
+      log = true
+
+[push]
+      # push to the branch with the same name on remote
+      default = current
+
+[log]
+      # log shows times like "2 hours ago"
+      date = relative
+
+[core]
+      autocrlf = input
+
+[diff "odf"]
+      textconv=odt2txt
